@@ -34,10 +34,10 @@ def decode_audio(data: CodeInput):
 
     audio_out = decoded.squeeze().cpu().numpy()
 
-    # save at 24khz first
+    # ruaj 24k se ndryshe nuk funksionon direkt ne 22050
     sf.write("decoded_24k.wav", audio_out, 24000)
 
-    # then resample to 22050hz
+    # pastaj rimodeloje to 22050hz
     subprocess.run([
         r"C:\ffmpeg\bin\ffmpeg.exe", "-y",
         "-i", "decoded_24k.wav",

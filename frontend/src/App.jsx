@@ -30,7 +30,7 @@ function App() {
         await ffmpeg.load()
       }
 
-      // convert audio to 24khz mono using ffmpeg.wasm (runs in browser)
+      // konverto ne 24khz para se ta dergosh
       setStatus("converting to 24khz...")
       await ffmpeg.writeFile("input", await fetchFile(file))
       await ffmpeg.exec(["-i", "input", "-ar", "24000", "-ac", "1", "output.wav"])
@@ -42,7 +42,7 @@ function App() {
 
       console.log("converted to 24khz, size:", wavBlob.size)
 
-      // send to server a
+      // send to server A
       setStatus("sending to server...")
       const form = new FormData()
       form.append("file", wavFile)
@@ -93,5 +93,6 @@ function App() {
     </div>
   )
 }
+
 
 export default App

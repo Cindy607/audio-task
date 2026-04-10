@@ -32,11 +32,11 @@ async def encode_audio(file: UploadFile = File(...)):
     with open(input_path, "wb") as f:
         f.write(raw_bytes)
 
-    # read audio
+    # lexo audio
     audio, sr = sf.read(input_path)
     print(f"received audio — shape: {audio.shape}, sr: {sr}")
 
-    # encodec expects [1, 1, T]
+   # duhet te jete [1, 1, T] ndryshe nuk funksionon
     audio_tensor = torch.tensor(audio, dtype=torch.float32).unsqueeze(0).unsqueeze(0)
 
     # encode
